@@ -150,11 +150,11 @@
   }
   .prod:last-child{border-bottom:none;}
   .prod-thumb{
-    flex-shrink:0;width:74px;
+    flex-shrink:0;width:74px;height:100px;
     background:var(--panel-2);border:1px solid var(--line);border-radius:9px;
-    padding:5px;align-self:flex-start;
+    overflow:hidden;align-self:flex-start;
   }
-  .prod-thumb img{width:100%;height:auto;display:block;border-radius:5px;}
+  .prod-thumb img{width:100%;height:100%;object-fit:cover;display:block;}
   .prod-info{flex:1;}
   .prod-name{font-size:14.5px;font-weight:600;margin:0 0 4px;}
   .prod-desc{font-size:13px;color:var(--ink-dim);line-height:1.55;margin:0 0 8px;}
