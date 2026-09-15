@@ -155,8 +155,16 @@
     color:#fff;background:var(--ink);
     padding:4px 10px;border-radius:20px;margin-bottom:10px;
   }
-  .hero p.lede{font-size:14.5px;font-weight:500;margin:0 0 6px;}
-  .hero p.desc{font-size:13.5px;line-height:1.6;color:var(--ink-dim);margin:0;}
+  .hero p.lede{font-size:14.5px;font-weight:500;margin:0 0 10px;}
+  .hero p.desc{font-size:12.5px;line-height:1.5;color:var(--ink-dim);margin:0;}
+  .hero-routine{display:flex;flex-direction:column;gap:8px;margin:0 0 12px;}
+  .hero-routine-row{display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--ink);}
+  .hero-tag{
+    flex-shrink:0;font-family:'Poppins', sans-serif;font-size:10.5px;font-weight:700;
+    color:#fff;padding:3px 10px;border-radius:20px;letter-spacing:0.03em;
+  }
+  .hero-tag.day{background:var(--day);}
+  .hero-tag.night{background:var(--night);}
 
   .prod{
     display:flex;gap:12px;align-items:flex-start;
@@ -283,7 +291,11 @@
         <div class="hero-body">
           <span class="exclusive">TIKTOK SHOP EXCLUSIVE</span>
           <p class="lede">Your whole skincare routine, handled by one set.</p>
-          <p class="desc">A Complete Day &amp; Night Retinal Care Routine. From morning barrier care and SPF to nighttime retinal care, five products complete your routine. Available exclusively on the celimax TikTok Shop.</p>
+          <div class="hero-routine">
+            <div class="hero-routine-row"><span class="hero-tag day">AM</span>Barrier care + SPF</div>
+            <div class="hero-routine-row"><span class="hero-tag night">PM</span>Retinal care</div>
+          </div>
+          <p class="desc">5 products · one complete Day &amp; Night routine, exclusively on the celimax TikTok Shop.</p>
         </div>
       </div>
 
