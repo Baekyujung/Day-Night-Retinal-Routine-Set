@@ -288,6 +288,26 @@
   .step-label{font-size:12.5px;font-weight:600;color:var(--ink-dim);}
   .step-text{font-size:13.5px;line-height:1.6;}
 
+  .detail-card{padding:0 16px 8px;overflow:hidden;}
+  .detail-card h3.h-sm{margin:0 -16px 12px;padding:12px 16px;}
+  .detail-card.day{border:1.5px solid var(--day);}
+  .detail-card.day h3.h-sm{background:var(--day-dim);color:var(--day);}
+  .detail-card.night{border:1.5px solid var(--night);}
+  .detail-card.night h3.h-sm{background:var(--night-dim);color:var(--night);}
+  .detail-lead{margin:0 0 4px;font-size:13px;line-height:1.55;color:var(--ink-dim);}
+  .detail-step{display:flex;gap:11px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--line);}
+  .detail-step:last-child{border-bottom:none;}
+  .detail-num{
+    flex-shrink:0;width:22px;height:22px;border-radius:50%;margin-top:1px;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Poppins', sans-serif;font-size:11px;font-weight:800;color:#fff;
+  }
+  .detail-card.day .detail-num{background:var(--day);}
+  .detail-card.night .detail-num{background:var(--night);}
+  .detail-name{margin:0 0 3px;font-size:14px;font-weight:700;}
+  .detail-text{margin:0;font-size:13px;line-height:1.6;color:var(--ink-dim);}
+  .detail-text b{color:var(--ink);font-weight:600;}
+
   .story{margin:0 0 16px;}
   .story img{
     width:100%;display:block;border-radius:14px;border:1.5px solid var(--line);
@@ -467,15 +487,38 @@
         </div>
       </div>
 
-      <div class="card hook-card">
-        <h3 class="h-sm">Hook options · one box, both routines</h3>
-        <ul class="hooklist">
-          <li><span class="idx">01</span><span>"POV: Your complete AM and PM skincare routine arrives in one box."</span></li>
-          <li><span class="idx">02</span><span>"Stop buying day skincare and night skincare separately."</span></li>
-          <li><span class="idx">03</span><span>"Want to try retinal but have no idea where to start? Start here."</span></li>
-          <li><span class="idx">04</span><span>"Did you know your retinal care shouldn't stop when nighttime ends?"</span></li>
-          <li><span class="idx">05</span><span>"Nighttime retinal care is only half the routine. Don't skip the morning after."</span></li>
-        </ul>
+      <div class="card detail-card day">
+        <h3 class="h-sm">☀ Day routine · hydrate, even tone, protect</h3>
+        <p class="detail-lead">A morning routine that strengthens the barrier, evens out skin tone, and shields skin from UV.</p>
+        <div class="detail-step">
+          <span class="detail-num">1</span>
+          <div><p class="detail-name">Barrier Toner</p><p class="detail-text"><b>5 Ceramides + Aquatide Peptide</b> strengthen the skin barrier while hydrating and soothing, so skin is ready for the steps that follow.</p></div>
+        </div>
+        <div class="detail-step">
+          <span class="detail-num">2</span>
+          <div><p class="detail-name">TXA Cream</p><p class="detail-text"><b>5% Niacinamide + 5% Tranexamic Acid + Melazero V2</b> target dark spots and the appearance of pores for a more even skin tone.</p></div>
+        </div>
+        <div class="detail-step">
+          <span class="detail-num">3</span>
+          <div><p class="detail-name">TXA Sunscreen</p><p class="detail-text">Protects from UV rays, while <b>5% Niacinamide + 1% TXA + 1% Panthenol</b> keep targeting dark spots.</p></div>
+        </div>
+      </div>
+
+      <div class="card detail-card night">
+        <h3 class="h-sm">☾ Night routine · prep, retinal care, firm</h3>
+        <p class="detail-lead">A night routine that preps the barrier first, then delivers retinal care for firmer-looking skin.</p>
+        <div class="detail-step">
+          <span class="detail-num">1</span>
+          <div><p class="detail-name">Barrier Toner</p><p class="detail-text"><b>5 Ceramides + Aquatide Peptide</b> support the skin barrier and help reduce irritation from retinal, prepping skin for the retinal steps.</p></div>
+        </div>
+        <div class="detail-step">
+          <span class="detail-num">2</span>
+          <div><p class="detail-name">Retinal Dual Cream</p><p class="detail-text"><b>0.05% Retinal + 5% Panthenol + 0.1% Guaiazulene + Matrixyl®3000 3%</b> firm, soothe, and hydrate.</p></div>
+        </div>
+        <div class="detail-step">
+          <span class="detail-num">3</span>
+          <div><p class="detail-name">Retinal Shot Booster</p><p class="detail-text"><b>0.1% Retinal + Matrixyl®3000 3% + Micro-Needles</b> target wrinkles, pores, and skin texture.</p></div>
+        </div>
       </div>
       <p class="ai-note">Contains AI-generated imagery</p>
     </section>
