@@ -23,7 +23,12 @@
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;}
   body{
-    background:linear-gradient(180deg, #FCF9F2 0%, var(--bg) 340px);
+    background:
+      radial-gradient(at 5% 5%, rgba(255,228,173,0.5), transparent 35%),
+      radial-gradient(at 95% 26%, rgba(222,215,246,0.63), transparent 40%),
+      linear-gradient(180deg, #FFF9ED 0%, #F8F1E8 22%, #EEEAF5 58%, #E3E6F3 100%);
+    background-attachment:fixed;
+    background-color:#F8F1E8;
     color:var(--ink);
     font-family:'IBM Plex Sans KR', sans-serif;
     -webkit-font-smoothing:antialiased;
@@ -42,7 +47,7 @@
     position:sticky;
     top:0;
     z-index:20;
-    background:rgba(247,243,233,0.92);
+    background:rgba(255,249,238,0.92);
     backdrop-filter:blur(6px);
     padding:14px 18px 12px;
     border-bottom:1px solid var(--line);
@@ -358,7 +363,7 @@
     position:fixed;bottom:0;left:50%;transform:translateX(-50%);
     width:100%;max-width:480px;
     display:flex;
-    background:rgba(255,255,255,0.96);
+    background:rgba(244,241,250,0.96);
     backdrop-filter:blur(8px);
     border-top:1px solid var(--line);
     box-shadow:0 -6px 18px rgba(36,30,20,0.06);
