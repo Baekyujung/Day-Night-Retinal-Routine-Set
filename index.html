@@ -168,23 +168,54 @@
   .scene-script{display:block;font-weight:600;}
   .scene-visual{display:block;margin-top:4px;font-size:12.5px;font-weight:500;color:var(--ink-dim);}
   .ref-links{list-style:none;margin:0;padding:0;}
-  .ref-links li{border-bottom:1px solid var(--line);}
+  .ref-links li{border-bottom:1px solid var(--line);display:flex;align-items:flex-start;gap:10px;padding:11px 0;}
   .ref-links li:last-child{border-bottom:none;}
-  .ref-links a{
-    display:flex;align-items:center;gap:10px;padding:11px 0;
-    color:var(--ink);text-decoration:none;font-size:13.5px;font-weight:600;line-height:1.4;
-  }
   .ref-links .ref-scene{
     font-family:'Poppins', sans-serif;font-weight:800;font-size:12px;color:var(--day);
-    min-width:22px;flex-shrink:0;
+    min-width:22px;flex-shrink:0;padding-top:2px;
   }
-  .ref-links .ref-name{flex:1;}
+  .ref-links .ref-main{flex:1;min-width:0;display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;}
+  .ref-links .ref-name{
+    flex:1 1 200px;min-width:0;
+    color:var(--ink);text-decoration:none;font-size:13.5px;font-weight:600;line-height:1.4;
+  }
+  .ref-links .ref-actions{display:flex;align-items:center;gap:6px;flex-shrink:0;}
   .ref-links .ref-src{
     font-family:'Poppins', sans-serif;font-weight:600;font-size:10.5px;
-    color:var(--day);background:var(--day-dim);padding:3px 9px;border-radius:20px;white-space:nowrap;
+    color:var(--day);background:var(--day-dim);padding:4px 10px;border-radius:20px;white-space:nowrap;text-decoration:none;
   }
-  .ref-links a::after{content:"\2197";color:var(--ink-dim);font-size:14px;}
-  .ref-links a:active{opacity:0.6;}
+  .ref-links .ref-src::after{content:" \2197";}
+  .ref-links a:active{opacity:0.6;}  .photo-btn{
+    flex-shrink:0;display:inline-flex;align-items:center;gap:5px;
+    padding:4px 10px 4px 8px;border-radius:20px;cursor:pointer;
+    font-family:'Poppins', sans-serif;font-weight:600;font-size:10.5px;line-height:1.3;
+    color:#fff;background:var(--day);border:none;
+    transition:transform .12s ease, opacity .12s ease;
+  }
+  .photo-btn::before{
+    content:"";width:11px;height:11px;flex-shrink:0;background:currentColor;
+    -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Crect x='3' y='5' width='18' height='14' rx='2'/%3E%3Ccircle cx='9' cy='11' r='2'/%3E%3Cpath d='M21 16l-5-5-8 8'/%3E%3C/svg%3E") center/contain no-repeat;
+    mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Crect x='3' y='5' width='18' height='14' rx='2'/%3E%3Ccircle cx='9' cy='11' r='2'/%3E%3Cpath d='M21 16l-5-5-8 8'/%3E%3C/svg%3E") center/contain no-repeat;
+  }
+  .photo-btn:active{transform:scale(0.94);opacity:0.85;}
+  .lightbox{
+    position:fixed;inset:0;z-index:100;
+    display:flex;align-items:center;justify-content:center;
+    background:rgba(24,20,34,0.88);padding:20px;
+    backdrop-filter:blur(4px);
+  }
+  .lightbox[hidden]{display:none;}
+  .lightbox-fig{margin:0;max-width:100%;text-align:center;}
+  .lightbox-fig img{
+    display:block;max-width:100%;max-height:78vh;margin:0 auto;
+    border-radius:12px;box-shadow:0 12px 40px rgba(0,0,0,0.45);
+  }
+  .lightbox-fig figcaption{margin-top:12px;color:#fff;font-size:13px;font-weight:500;}
+  .lightbox-close{
+    position:absolute;top:14px;right:16px;width:40px;height:40px;
+    border:none;border-radius:50%;background:rgba(255,255,255,0.16);color:#fff;
+    font-size:26px;line-height:1;cursor:pointer;
+  }
   .hero{
     border:1.5px solid var(--line);
     border-radius:16px;
@@ -638,11 +669,11 @@
       <div class="card">
         <h3 class="h-sm">Reference links · celebs featuring our products</h3>
         <ul class="ref-links">
-          <li><a href="https://www.instagram.com/reel/Derw1LSoj6y/" target="_blank" rel="noopener noreferrer"><span class="ref-scene">01</span><span class="ref-name">Kylie Jenner · Victoria's Secret look</span><span class="ref-src">Instagram</span></a></li>
-          <li><a href="https://www.instagram.com/reel/DekKbU7Porv/" target="_blank" rel="noopener noreferrer"><span class="ref-scene">02</span><span class="ref-name">Kylie Jenner · Retinal Shot Booster</span><span class="ref-src">Instagram</span></a></li>
-          <li><a href="https://www.tiktok.com/@georginagio/video/7669768837264428310" target="_blank" rel="noopener noreferrer"><span class="ref-scene">03</span><span class="ref-name">Georgina Rodriguez · Retinal Shot Booster</span><span class="ref-src">TikTok</span></a></li>
-          <li><a href="https://www.instagram.com/reel/DeaA6-RxQ-F/" target="_blank" rel="noopener noreferrer"><span class="ref-scene">04</span><span class="ref-name">Kelly Piquet · Retinal Shot Booster</span><span class="ref-src">Instagram</span></a></li>
-          <li><a href="https://www.instagram.com/p/DdSTR3rGCLn/" target="_blank" rel="noopener noreferrer"><span class="ref-scene">05</span><span class="ref-name">Antonela Roccuzzo · Retinal Shot Booster</span><span class="ref-src">Instagram</span></a></li>
+          <li><span class="ref-scene">01</span><div class="ref-main"><a class="ref-name" href="https://www.instagram.com/reel/Derw1LSoj6y/" target="_blank" rel="noopener noreferrer">Kylie Jenner · Victoria's Secret look</a><div class="ref-actions"><a class="ref-src" href="https://www.instagram.com/reel/Derw1LSoj6y/" target="_blank" rel="noopener noreferrer">Instagram</a><button type="button" class="photo-btn" data-photo="images/celeb1.jpg" data-caption="Kylie Jenner · Victoria's Secret look" aria-label="View photo: Kylie Jenner · Victoria's Secret look">Photo</button></div></div></li>
+          <li><span class="ref-scene">02</span><div class="ref-main"><a class="ref-name" href="https://www.instagram.com/reel/DekKbU7Porv/" target="_blank" rel="noopener noreferrer">Kylie Jenner · Retinal Shot Booster</a><div class="ref-actions"><a class="ref-src" href="https://www.instagram.com/reel/DekKbU7Porv/" target="_blank" rel="noopener noreferrer">Instagram</a><button type="button" class="photo-btn" data-photo="images/celeb2.jpg" data-caption="Kylie Jenner · Retinal Shot Booster" aria-label="View photo: Kylie Jenner · Retinal Shot Booster">Photo</button></div></div></li>
+          <li><span class="ref-scene">03</span><div class="ref-main"><a class="ref-name" href="https://www.tiktok.com/@georginagio/video/7669768837264428310" target="_blank" rel="noopener noreferrer">Georgina Rodriguez · Retinal Shot Booster</a><div class="ref-actions"><a class="ref-src" href="https://www.tiktok.com/@georginagio/video/7669768837264428310" target="_blank" rel="noopener noreferrer">TikTok</a><button type="button" class="photo-btn" data-photo="images/celeb3.jpg" data-caption="Georgina Rodriguez · Retinal Shot Booster" aria-label="View photo: Georgina Rodriguez · Retinal Shot Booster">Photo</button></div></div></li>
+          <li><span class="ref-scene">04</span><div class="ref-main"><a class="ref-name" href="https://www.instagram.com/reel/DeaA6-RxQ-F/" target="_blank" rel="noopener noreferrer">Kelly Piquet · Retinal Shot Booster</a><div class="ref-actions"><a class="ref-src" href="https://www.instagram.com/reel/DeaA6-RxQ-F/" target="_blank" rel="noopener noreferrer">Instagram</a><button type="button" class="photo-btn" data-photo="images/celeb4.jpg" data-caption="Kelly Piquet · Retinal Shot Booster" aria-label="View photo: Kelly Piquet · Retinal Shot Booster">Photo</button></div></div></li>
+          <li><span class="ref-scene">05</span><div class="ref-main"><a class="ref-name" href="https://www.instagram.com/p/DdSTR3rGCLn/" target="_blank" rel="noopener noreferrer">Antonela Roccuzzo · Retinal Shot Booster</a><div class="ref-actions"><a class="ref-src" href="https://www.instagram.com/p/DdSTR3rGCLn/" target="_blank" rel="noopener noreferrer">Instagram</a><button type="button" class="photo-btn" data-photo="images/celeb5.jpg" data-caption="Antonela Roccuzzo · Retinal Shot Booster" aria-label="View photo: Antonela Roccuzzo · Retinal Shot Booster">Photo</button></div></div></li>
         </ul>
       </div>
 
@@ -687,6 +718,11 @@
 
 </div>
 
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" hidden>
+    <button type="button" class="lightbox-close" aria-label="Close photo">&times;</button>
+    <figure class="lightbox-fig"><img id="lightboxImg" src="" alt=""><figcaption id="lightboxCap"></figcaption></figure>
+  </div>
+
 <script>
   const buttons = document.querySelectorAll('.tabbtn');
   const screens = document.querySelectorAll('.screen');
@@ -705,6 +741,21 @@
       window.scrollTo(0,0);
     });
   });
+
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxCap = document.getElementById('lightboxCap');
+  function closeLightbox(){ lightbox.hidden = true; lightboxImg.removeAttribute('src'); }
+  document.querySelectorAll('.photo-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      lightboxImg.src = btn.dataset.photo;
+      lightboxImg.alt = btn.dataset.caption;
+      lightboxCap.textContent = btn.dataset.caption;
+      lightbox.hidden = false;
+    });
+  });
+  lightbox.addEventListener('click', e => { if (e.target !== lightboxImg) closeLightbox(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !lightbox.hidden) closeLightbox(); });
 </script>
 
 </body>
