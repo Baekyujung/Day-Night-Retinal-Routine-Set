@@ -234,7 +234,10 @@
     position:absolute;top:10px;right:10px;width:34px;height:34px;border:none;border-radius:50%;
     background:var(--day-dim);color:var(--day);font-size:22px;line-height:1;cursor:pointer;
   }
-  .refgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .ref-open + .ref-open{margin-top:-4px;background:var(--night);box-shadow:0 4px 12px rgba(46,90,150,0.28);}
+  #reviewModal .ref-thumb,#reviewModal .reftile video{aspect-ratio:9/18;}
+  .reftile video{display:block;width:100%;aspect-ratio:3/4;object-fit:contain;background:#14111c;border-radius:12px;}
+  .ref-thumb.top img{object-position:center top;}  .refgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
   .refitem{display:flex;flex-direction:column;gap:7px;min-width:0;}
   .ref-thumb{
     display:block;padding:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;cursor:zoom-in;background:var(--panel);
@@ -766,7 +769,8 @@
         <figcaption class="ref-cap">The comic above is an image to help you understand the flow of the video.</figcaption>
       </figure>
 
-      <button type="button" class="ref-open" id="refOpen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M21 16l-5-5-8 8"/></svg>Celeb reference images · view &amp; download</button>
+      <button type="button" class="ref-open" data-open="refModal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M21 16l-5-5-8 8"/></svg>Celeb reference images · view &amp; download</button>
+      <button type="button" class="ref-open" data-open="reviewModal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l2.6 5.4 5.9.8-4.3 4.1 1 5.9L12 16.4 6.8 19.2l1-5.9L3.5 9.2l5.9-.8z"/></svg>5-star review video &amp; image · view &amp; download</button>
 
       <div class="card hook-card">
         <h3 class="h-sm">Content flow · 7 scenes</h3>
@@ -787,7 +791,7 @@
 
   <div class="refmodal" id="refModal" role="dialog" aria-modal="true" aria-label="Celeb reference images" hidden>
     <div class="refmodal-panel">
-      <button type="button" class="refmodal-close" id="refClose" aria-label="Close">&times;</button>
+      <button type="button" class="refmodal-close" aria-label="Close">&times;</button>
       <h3>Celeb reference images</h3>
       <p>Tap a photo to enlarge it, or download it for your video.</p>
       <div class="refgrid">
@@ -799,6 +803,17 @@
     </div>
   </div>
 
+  <div class="refmodal" id="reviewModal" role="dialog" aria-modal="true" aria-label="5-star review video and image" hidden>
+    <div class="refmodal-panel">
+      <button type="button" class="refmodal-close" aria-label="Close">&times;</button>
+      <h3>5-star review video &amp; image</h3>
+      <p>Retinal Shot Booster reviews. Play the video or tap the image to enlarge, or download them for your video.</p>
+      <div class="refgrid">
+        <div class="refitem reftile"><video controls playsinline preload="metadata" src="videos/review-5star.mp4"></video><span class="refname">Review video</span><a class="ref-dl" href="videos/review-5star.mp4" download="celimax-review-5star.mp4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg> Download</a></div>
+        <div class="refitem"><button type="button" class="ref-thumb top" data-photo="images/review-5star.jpg" data-caption="Retinal Shot Booster · 5-star reviews" aria-label="View image: 5-star reviews"><img src="images/review-5star.jpg" alt="Retinal Shot Booster review page: 13,014 global reviews, 10,040 five-star" loading="lazy"></button><span class="refname">Review image</span><a class="ref-dl" href="images/review-5star.jpg" download="celimax-review-5star.jpg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg> Download</a></div>
+      </div>
+    </div>
+  </div>
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" hidden>
     <button type="button" class="lightbox-close" aria-label="Close photo">&times;</button>
     <figure class="lightbox-fig"><img id="lightboxImg" src="" alt=""><figcaption id="lightboxCap"></figcaption></figure>
@@ -839,12 +854,17 @@
   document.addEventListener('keydown', e => {
     if (e.key !== 'Escape') return;
     if (!lightbox.hidden) closeLightbox();
-    else if (!refModal.hidden) refModal.hidden = true;
+    else modals.forEach(m => { if (!m.hidden) closeModal(m); });
   });
-  const refModal = document.getElementById('refModal');
-  document.getElementById('refOpen').addEventListener('click', () => { refModal.hidden = false; });
-  document.getElementById('refClose').addEventListener('click', () => { refModal.hidden = true; });
-  refModal.addEventListener('click', e => { if (e.target === refModal) refModal.hidden = true; });
+  const modals = document.querySelectorAll('.refmodal');
+  function closeModal(m){ m.hidden = true; m.querySelectorAll('video').forEach(v => v.pause()); }
+  document.querySelectorAll('[data-open]').forEach(b => {
+    b.addEventListener('click', () => { document.getElementById(b.dataset.open).hidden = false; });
+  });
+  modals.forEach(m => {
+    m.querySelector('.refmodal-close').addEventListener('click', () => closeModal(m));
+    m.addEventListener('click', e => { if (e.target === m) closeModal(m); });
+  });
 </script>
 
 </body>
