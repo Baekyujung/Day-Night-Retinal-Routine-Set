@@ -251,6 +251,9 @@
   }
   .ref-thumb img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 30%;}
   .ref-thumb.hero-shot{aspect-ratio:auto;width:min(120px,100%);margin-top:8px;}
+  .routine-shots{display:flex;flex-direction:column;gap:12px;}
+  .ref-thumb.routine-shot{aspect-ratio:1/1;width:100%;}
+  .ref-thumb.routine-shot img{object-fit:cover;object-position:center;}
   .hook-card h3.hook-head{display:flex;align-items:center;justify-content:space-between;gap:8px;}
   .guide-btn{
     display:inline-flex;align-items:center;gap:4px;flex-shrink:0;padding:5px 10px;border-radius:20px;
@@ -789,10 +792,10 @@
 
       <div class="card">
         <h3 class="h-sm">Day &amp; Night routine to show</h3>
-        <ul class="point-list">
-          <li><b>Day:</b> Dual Barrier Creamy Toner, then Pore + Dark Spot Brightening Cream, then Pore + Skin Clarifying Daily Sunscreen SPF50+. Hydration and skin prep, even skin tone, UV protection</li>
-          <li><b>Night:</b> Dual Barrier Creamy Toner, then Retinal Shot Tightening Dual Cream, then Retinal Shot Tightening Booster. Hydration and skin prep, firming care, intensive care for fine lines</li>
-        </ul>
+        <div class="routine-shots">
+          <button type="button" class="ref-thumb routine-shot" data-photo="images/routine-day.jpg" data-caption="Day routine" aria-label="View image: Day routine"><img src="images/routine-day.jpg" alt="Day routine: Dual Barrier Creamy Toner, Pore + Dark Spot Brightening Cream, Clarifying Daily Sunscreen" loading="lazy"></button>
+          <button type="button" class="ref-thumb routine-shot" data-photo="images/routine-night.jpg" data-caption="Night routine" aria-label="View image: Night routine"><img src="images/routine-night.jpg" alt="Night routine: Dual Barrier Creamy Toner, Retinal Shot Tightening Dual Cream, Retinal Shot Tightening Booster" loading="lazy"></button>
+        </div>
       </div>
     </section>
   </main>
