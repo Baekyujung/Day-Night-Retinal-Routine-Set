@@ -232,6 +232,10 @@
   }
   .refmodal-panel h3{margin:0 40px 4px 2px;font-size:16px;font-weight:700;}
   .refmodal-panel p{margin:0 2px 14px;font-size:12px;color:var(--ink-dim);}
+  .ref-group{display:flex;align-items:center;gap:8px;margin:4px 2px 2px;font-size:13px;font-weight:700;color:var(--day);}
+  .ref-group .ref-count{font-size:11px;font-weight:600;color:var(--ink-dim);background:var(--day-dim);border-radius:999px;padding:1px 8px;}
+  .ref-group.second{margin-top:20px;padding-top:16px;border-top:1.5px solid var(--line);}
+  .ref-links li.ref-empty{display:block;padding:14px 2px;font-size:12px;color:var(--ink-dim);}
   .refmodal-close{
     position:absolute;top:10px;right:10px;width:34px;height:34px;border:none;border-radius:50%;
     background:var(--day-dim);color:var(--day);font-size:22px;line-height:1;cursor:pointer;
@@ -815,12 +819,17 @@
     <div class="refmodal-panel">
       <button type="button" class="refmodal-close" aria-label="Close">&times;</button>
       <h3>Past hero contents</h3>
-      <p>Retinal Booster hero contents from celimax. Follow their format.</p>
+      <p>Retinal Booster hero contents from celimax, by language. Follow their format.</p>
+      <h4 class="ref-group">Spanish contents <span class="ref-count">4</span></h4>
       <ul class="ref-links">
         <li><span class="ref-scene">01</span><div class="ref-main"><a class="ref-name" href="https://www.tiktok.com/@danyanoemi/video/7545665800556842254" target="_blank" rel="noopener noreferrer">@danyanoemi</a><div class="ref-actions"><a class="ref-src" href="https://www.tiktok.com/@danyanoemi/video/7545665800556842254" target="_blank" rel="noopener noreferrer">TikTok</a></div></div></li>
         <li><span class="ref-scene">02</span><div class="ref-main"><a class="ref-name" href="https://www.tiktok.com/@yuliannygarcia25/video/7570392406755937566" target="_blank" rel="noopener noreferrer">@yuliannygarcia25</a><div class="ref-actions"><a class="ref-src" href="https://www.tiktok.com/@yuliannygarcia25/video/7570392406755937566" target="_blank" rel="noopener noreferrer">TikTok</a></div></div></li>
         <li><span class="ref-scene">03</span><div class="ref-main"><a class="ref-name" href="https://www.tiktok.com/@angelamachadobeauty/video/7550444199640894733" target="_blank" rel="noopener noreferrer">@angelamachadobeauty</a><div class="ref-actions"><a class="ref-src" href="https://www.tiktok.com/@angelamachadobeauty/video/7550444199640894733" target="_blank" rel="noopener noreferrer">TikTok</a></div></div></li>
         <li><span class="ref-scene">04</span><div class="ref-main"><a class="ref-name" href="https://www.tiktok.com/@marinafierro1/video/7563820473218305311" target="_blank" rel="noopener noreferrer">@marinafierro1</a><div class="ref-actions"><a class="ref-src" href="https://www.tiktok.com/@marinafierro1/video/7563820473218305311" target="_blank" rel="noopener noreferrer">TikTok</a></div></div></li>
+      </ul>
+      <h4 class="ref-group second">English contents <span class="ref-count">0</span></h4>
+      <ul class="ref-links">
+        <li class="ref-empty">English hero contents will be added here.</li>
       </ul>
     </div>
   </div>
