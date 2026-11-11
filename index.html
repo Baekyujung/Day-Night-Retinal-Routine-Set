@@ -254,6 +254,7 @@
   .ref-thumb img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 30%;}
   .ref-thumb.hero-shot{aspect-ratio:auto;width:min(120px,100%);margin-top:8px;}
   .hook-video{display:block;width:min(230px,100%);aspect-ratio:9/16;margin:0 auto 6px;border-radius:12px;background:#14111c;object-fit:contain;}
+  .hook-card .script-line:last-child{margin-bottom:0;}
   .video-cap{margin:0 0 14px;text-align:center;font-size:11px;color:var(--ink-dim);}
   .script-line{margin:0 0 14px;padding:10px 12px;border-radius:10px;background:var(--day-dim);font-size:13.5px;font-weight:600;line-height:1.5;}
   .routine-shots{display:flex;flex-direction:column;gap:12px;}
@@ -592,7 +593,10 @@
         <video class="hook-video" controls playsinline preload="metadata" src="videos/angle1-hook.mp4#t=0.1"></video>
         <p class="video-cap">AI-generated example. Film your own version with the real products.</p>
         <p class="script-line">"Wait. For the price of these two&hellip; you get these three too!"</p>
-        <h3 class="h-sm hook-split">More hook options · say it in the first second</h3>
+        </div>
+
+      <div class="card hook-card">
+        <h3 class="h-sm">More hook options · say it in the first second</h3>
         <ul class="hooklist">
           <li><span class="idx">01</span><span>"Do not add these five to your cart one by one."</span></li>
           <li><span class="idx">02</span><span>"Five full-size products for $79? I thought the price was a typo."</span></li>
